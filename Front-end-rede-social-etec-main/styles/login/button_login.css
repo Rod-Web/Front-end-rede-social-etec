@@ -1,0 +1,23 @@
+.btn-login {
+    font-family: "MuseoModerno", sans-serif;
+    background: linear-gradient(90deg, #ff36b1,#6c0fff);
+    color: #ffffff;        
+    border-radius: 60px;       
+    padding: 16px 0;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s ease;
+    width: 100%;
+    max-width: 520px;
+    margin-top: 10px;
+}
+
+.btn-login:active {
+    transform: scale(0.98);
+}
+
+.btn-login:focus {
+    outline: 2px solid rgba(224, 11, 164, 0.25);
+    outline-offset: 2px;
+}
