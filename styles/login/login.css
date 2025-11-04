@@ -1,11 +1,3 @@
-:root {
-    --azul-600: #0e67e6;
-    --azul-500: #2a75dd;
-    --card-borda: 10px;
-    --cinza: #8b8b8b;
-    /* ao mexer no css do projeto, utilizar somente ESSAS CORES !!! bjs - estrela */
-}
-
 * {
     box-sizing: border-box
 }
@@ -14,7 +6,32 @@ html,
 body {
     height: 100%;
     margin: 0;
-    font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    color: #757575;
+}
+
+h1 {
+    font-family: "MuseoModerno", sans-serif;
+    background: linear-gradient(90deg, #ff36b1,#6c0fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-size: 48px;
+    line-height: 1;
+    margin: 0px;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.site {
+    font-family: "MuseoModerno", sans-serif;
+    background: linear-gradient(90deg, #ff36b1,#6c0fff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    font-size: 25px;
 }
 
 .ilustracao {
@@ -60,17 +77,4 @@ body {
     box-shadow: 0 2px 0 rgba(0, 0, 0, 0.05);
 }
 
-
-h1 {
-    margin: 18px 0 0 0;
-    font-size: 40px;
-    line-height: 1;
-    color: #111;
-    font-weight: 800;
-}
-
-p .descricao {
-    margin: 6px 0 18px 0;
-    color: var(--cinza);
-}
 

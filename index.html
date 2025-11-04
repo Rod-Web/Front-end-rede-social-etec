@@ -5,14 +5,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="icon" href="./assets/images/icon2.png">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="./styles/login/login.css">
     <link rel="stylesheet" href="./styles/login/button_login.css">
     <link rel="stylesheet" href="./styles/login/formulario.css">
 
-    <title>Login - NOME DO SITE</title>
+    <title>ConnectaETEC - Login </title>
 </head>
 
 <body>
@@ -22,14 +25,14 @@
         <div class="esquerda">
             
             <div class="logo"> 
-                <span class="icon"></span> 
-                <span>nome do site.</span>
+                <img class="icon" src="./assets/images/icon.png" alt="icon">
+                <span class="site">connectaetec</span>
             </div>
 
             <h1>Faça login na sua conta</h1>
             <p class="descricao">Bem-vindo! Selecione o que você é para se cadastrar:</p>
 
-            <form class="formulario" id="form-login" onsubmit="return false;">
+            <form class="formulario" id="form-login">
         
                 <div class="select-wrapper">
 
@@ -54,7 +57,7 @@
 
 
 
-                <a class="ajuda" href="linkaqui"> Solicitar nova senha </a>
+                <a class="ajuda" href="./html/cadastro.html"> Cadastrar novo aluno </a>
                     <p style="color: red; font-size: 0.8em;" id="resposta"></p>
                 <button type="submit" class="btn-login">Entrar</button>
 
@@ -62,7 +65,7 @@
         </div>
 
 
-        <img class="ilustracao" src="./assets/images/ilustracao.jpg" alt="ilustração"/>
+        <img class="ilustracao" src="./assets/images/ilustracao.png" alt="ilustração"/>
 
     </div>
 

@@ -17,6 +17,7 @@ export function dados() {
       try {
         tratamentoDados(tipoUsuario, identificador, senha);
         event.target.reset();
+        document.getElementById("text-identificador").textContent = "RM"
       } catch (error) {
         console.error("Erro ao tratar os dados:", error);
       }

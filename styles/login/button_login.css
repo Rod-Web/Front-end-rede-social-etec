@@ -1,8 +1,8 @@
 .btn-login {
-    background: var(--azul-600);
-    color: #fff;
-    border: none;
-    border-radius: var(--card-borda);
+    font-family: "MuseoModerno", sans-serif;
+    background: linear-gradient(90deg, #ff36b1,#6c0fff);
+    color: #ffffff;        
+    border-radius: 60px;       
     padding: 16px 0;
     font-size: 18px;
     font-weight: 600;
@@ -13,15 +13,11 @@
     margin-top: 10px;
 }
 
-.btn-login:hover {
-    background: var(--azul-500);
-}
-
 .btn-login:active {
     transform: scale(0.98);
 }
 
 .btn-login:focus {
-    outline: 2px solid rgba(11, 98, 224, 0.25);
+    outline: 2px solid rgba(224, 11, 164, 0.25);
     outline-offset: 2px;
 }

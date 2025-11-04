@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../assets/images/icon2.png">
+
+    <link rel="stylesheet" href="../styles/cadastro/cadastro.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <title>CONNECTAETEC - cadastro </title>
+
+</head>
+
+<body>
+
+    <div class="titulo">
+       <h1>cadastro de aluno</h1>
+       <img class="confere" src="../assets/images/confere.png" alt="confere">
+    </div>
+
+    <p class="desc">nos forneça os dados para o cadastro do aluno em nosso sistema!</p>
+
+
+    <div id="parte1">
+        
+        <div class="detalhes">
+            <div class="section-label">detalhes básicos </div>
+            <img class="enfeite" src="../assets/images/enfeite.png" alt="enfeite">
+        </div>
+
+        <form>
+
+            <div class="section">
+                <div class="form-campo">
+                    <label for="nomeAluno">Nome do Aluno</label>
+                    <input id="nomeAluno" type="text" required>
+                </div>
+
+                <div class="form-campo">
+                    <label for="identificador">RM</label>
+                    <input id="identificador" type="text" required>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="form-campo">
+                    <label for="nomeResponsavel">Nome do Responsável</label>
+                    <input id="nomeResponsavel" type="text" required>
+                </div>
+
+                <div class="form-campo">
+                    <label for="dataNascimento">Data de nascimento</label>
+                    <input id="dataNascimento" type="date" required>
+                </div>
+            </div>            
+            
+            <div class="section">
+                <div class="form-campo">
+                    <label for="tipoDeContato">Tipo de contato</label>
+                    <select id="tipoDeContato" required>
+                        <option value="">Selecione o tipo de contato...</option>
+                        <option value="email">Email</option>
+                        <option value="tel">Telefone</option>
+                    </select>
+                </div>
+
+                <div class="form-campo">
+                    <label for="valorContato">Insira seu contato</label>
+                    <input id="valorContato" 
+                        placeholder="" 
+                        type="text"
+                        required>                    
+                </div>
+            </div>
+
+            <script>
+                const tipoContato = document.getElementById('tipoDeContato');
+
+                tipoContato.addEventListener('change', () => {
+                    const valorContato = document.getElementById('valorContato');
+                    const tipo = tipoContato.value;
+                    valorContato.type = tipo;
+
+                    if (tipo === 'email') {
+                        valorContato.placeholder = 'exemplo@dominio.com';
+                        valorContato.removeAttribute('pattern');
+                        valorContato.removeAttribute('title');
+                    } else if (tipo === 'tel') {
+                        valorContato.placeholder = '(11) 91234-5678';
+                        valorContato.pattern = '\\(\\d{2}\\)\\s\\d{4,5}-\\d{4}'; // regex para telefone brasileiro
+                        valorContato.title = "Formato esperado: (11) 91234-5678";
+                    } else {
+                        valorContato.placeholder = '';
+                        valorContato.removeAttribute('pattern');
+                        valorContato.removeAttribute('title');
+
+                    }
+});
+
+
+
+            
+            </script>
+ 
+
+            <button class="btn" type="submit" id="enviarDadosPessoais">prosseguir</button>
+
+        </form>
+
+    </div>
+
+
+    <div id="parte2">
+        <div class="section-label">sobre a turma ✱</div>
+
+
+        <form>
+
+            <div class="section">
+                <div class="form-campo">
+                    <label for="turmaPertencente">Turma</label>
+                    <select id="turmaPertencente" required>
+                        <option value="">Selecionar turma</option>
+                        <option value="DS">Desenvolvimento de Sistema</option>
+                        <option value="INFO">Informática p/ Internet</option>
+                        <option value="ADM">Administração</option>
+                    </select>
+                </div>
+
+                <div class="form-campo">
+                    <label for="formacao">Formação</label>
+                    <select id="formacao" required>
+                        <option value="">Selecionar...</option>
+                        <option value="TEC">Técnico</option>
+                        <option value="MTEC">Ensino Médio com técnico</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="form-campo">
+                    <label for="periodo">Período</label>
+                    <select id="periodo" required>
+                        <option value="">Selecionar...</option>
+                        <option value="Manha">Manhã</option>
+                        <option value="Tarde">Tarde</option>
+                        <option value="Noite">Noite</option>
+                    </select>
+                </div>
+
+                <div class="form-campo">
+                    <label for="modulo">Módulo</label>
+                    <select id="modulo" required>
+                        <option>Selecionar...</option>
+                        <option value="1">1º módulo/1ª Série</option>
+                        <option value="2">2º módulo/2ª Série</option>
+                        <option value="3">3º módulo/3ª Série</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <button class="btn" type="button" id="voltarEtapaAnterior">voltar</button>
+                <button class="btn" type="submit" id="enviarDadosDaTurma">enviar alun.</button>
+            </div>
+
+        </form>
+
+    </div>
+
+    <script type="module" src="../scripts/cadastro/cadastro.js"></script>
+
+</body>
+
+</html>        
