@@ -1,12 +1,10 @@
 export async function tratamentoDados(tipoUsuario, identificador, senha) {
-
-
+  
   const dataUser = {
     usuario: tipoUsuario,
-    identificador: identificador,
-    senha: senha,
+    identificador,
+    senha,
   };
-
 
   try {
     const response = await fetch("http://localhost:3001/login", {
@@ -14,27 +12,41 @@ export async function tratamentoDados(tipoUsuario, identificador, senha) {
       headers: {
         "Content-Type": "application/json",
       },
+      credentials: "include",
       body: JSON.stringify(dataUser),
     });
 
-    const data = await response.json();
-
-    if (response.ok && data.sucesso) {
-      document.getElementById("resposta").textContent =
-        "✅ Login bem-sucedido!";
-
-      console.log("Usuário: ", data.usuario)
-      console.log("Token JWT:", data.token);
-      localStorage.setItem("token", data.token);
-      // Redirecionar
-      } else {
-        console.warn("⚠️ Falha no login:", data.mensagem);
-        document.getElementById("resposta").textContent
-        = data.mensagem;
-      }
-    } catch (erro) {
-      console.error("❌ Erro na requisição:", erro.message);
-      alert("Erro ao conectar com o servidor.");
+    // tenta converter em JSON, mas com segurança
+    let data;
+    try {
+      data = await response.json();
+    } catch {
+      data = { mensagem: "Resposta inválida do servidor." };
     }
+    console.log(data)
+
+    let respHtml = document.getElementById("resposta");
+    respHtml.style.color = "red"
+    // se o servidor retornou sucesso (200)
+    if (data.sucesso) {
+      respHtml.style.color = "green"
+      respHtml.textContent = "✅ Login bem-sucedido!"
+      console.log("Usuário:", data.usuario);
+      
+      window.location.href = "./../../../html/dashbord.html";
+      
+    } else {
+
+      // resposta com erro de negócio (ex: 401, 400)
+      console.warn("⚠️ Falha no login:", data.mensagem || "Erro desconhecido");
+      respHtml.textContent = data.mensagem || "Falha ao realizar login."
+    }
+
+  } catch (erro) {
+
+    console.error("❌ Erro na requisição:", erro);
+    respHtml.textContent = "Erro ao conectar com o servidor.";
+
+  }
 
 }
